@@ -1,14 +1,31 @@
+# store chosen products in a list and loop when checkout
+cart = []
+def checkout():
+    print ("Here's your receipt")
+    total = 0
+    for i in cart:
+        print(f"{i['name']} - ${i['price']}")
+        total += i['price']
+    print (f"Total: ${total}")
+    print ("Thanks for shopping with us 💖")
+    
+# to show products
 def show_product(name, description,skintype, weight, price):
     print(name)
     print(description)
     print(skintype)
     print(f"Weight: {weight}")
     print(f"Price: ${price}")
-    buy = input("Will you buy this product? y/n: ")
+    buy = input("Add to cart? y/n: ")
     if buy == "y":
-        receipt()
+        cart.append({"name": name, "price": price})
+        shopping = input("Continue Shopping? y/n: ")
+        if shopping == "y":
+         start()
+        else:
+         checkout()
     else:
-        skincare()
+        start()
 
 
 
@@ -86,13 +103,13 @@ body_products = {
     "2": {
         "name": "Terbrima Mask",
         "price": 20,
-        "benefits": "This exquisite blend of herbs and flowers gently purifies, cleanses, and nourishes, revealing a luminous complexion.",
+        "description": "This exquisite blend of herbs and flowers gently purifies, cleanses, and nourishes, revealing a luminous complexion.",
         "weight": "200g"
     },
     "3": {
         "name": "Aker Fassi Sabounia",
         "price": 20,
-        "benefits": "A traditional Moroccan body soap. Infused with the power of Aker Fassi powder, this daily essential combats acne, promotes elasticity, and unveils a youthful luminosity.",
+        "description": "A traditional Moroccan body soap. Infused with the power of Aker Fassi powder, this daily essential combats acne, promotes elasticity, and unveils a youthful luminosity.",
         "weight": "200g"
     }
 }
@@ -103,13 +120,22 @@ def bodycare():
     product = body_products.get(choice)
 
     if product:
-        print(f"{product['name']} - {product['benefits']}")
+        print(f"{product['name']} - {product['description']}")
         print(f"Weight: {product['weight']}")
         print(f"Price: ${product['price']}")
     else:
         print("Invalid choice.")
         bodycare()
-
+    buy = input("Add to cart? y/n: ")
+    if buy == "y":
+        cart.append({"name": product['name'], "price": product['price']})
+        shopping = input("Continue Shopping? y/n: ")
+        if shopping == "y":
+         start()
+        else:
+         checkout()
+    else:
+        start()
 
 
 
@@ -119,13 +145,13 @@ def bodycare():
 
 def start():
     print("Welcome to Harmony Skincare! We offer Moroccan Skincare for effortless beauty")
-    print("1. Skincare\n2. Bodycare\n3. Haircare")
-    care = input("Choose a category (1–3): ")
+    print("1. Skincare\n2. Bodycare")
+    care = input("Choose a category (1–2): ")
 
     options = {
         "1": skincare,
         "2": bodycare,
-        # "3": haircare,
+       
         
     }
 
