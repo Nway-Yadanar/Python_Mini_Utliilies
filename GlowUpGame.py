@@ -2,7 +2,7 @@ class player:
     def __init__(self,name, age, skintype):
         self.skinhealth = 25
         self.name = name
-        self.age = age
+        self.age = int(age)
         self.skintype = skintype
 
     def about(self):
@@ -23,20 +23,23 @@ class player:
             self.skinhealth -=5
         
         toner = input("After face wash, will you use toner?").strip().lower()
-        if toner =="toner":
+        if toner =="yes":
             print("🫧Optional but Excellent choice. 2 points to you")
             self.skinhealth += 2
         else:
             print("Hmm...Toner is optional💧.")
 
-        facewash = input("Will you use facewash or water?").strip().lower()
-        if facewash =="facewash":
-            print("🫧Excellent choice. 5 points to you")
+        moisturizer = input("Will you use moisturizer?").strip().lower()
+        if moisturizer =="yes":
+            print("🧴Excellent choice. 5 points to you")
             self.skinhealth += 5
         else:
-            print("Hmm...Just water is not enough💧. 5 points from you ")
+            print("🧴Moisturizer is IMPORTANT. 5 points from you ")
             self.skinhealth -=5
-            
+
+        if self.age >= 25:
+            print("👵 You might want to use anti-aging products in your routine.")
+   
 
 print("🎀 Welcome to Glow Up game 🎀")
 name = input ("What's your name? ")
