@@ -2,7 +2,7 @@ class player:
     def __init__(self,name, age, skintype):
         self.skinhealth = 25
         self.name = name
-        self.age = int(age)
+        self.age = int(age) #age nk sat lok mhr mo int change
         self.skintype = skintype
 
     def about(self):
@@ -10,7 +10,10 @@ class player:
         print(f"Age: {self.age}")
         print(f"Skin Type: {self.skintype}")
         print(f"Skin Health: {self.skinhealth}")
-        
+        if self.skinhealth <= 15:
+            print ("You have to learn more about skincare")
+        else:
+            print ("You are doing great")
 
     def make_choice(self):
         print("It's your skincare time✨\n")
@@ -50,3 +53,4 @@ print("You will now have 25 points for skinhealth. " \
 )
 player = player(name, age, skintype)
 player.make_choice()
+player.about()
