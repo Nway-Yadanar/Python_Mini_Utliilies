@@ -10,10 +10,13 @@ class Pet:
         print(f"Hello. I am {self.name} and your virtual pet")
 
     def feed(self):
-        feed = input("Will you feed me hooman y/n:  ").strip() .lower()
-        if feed == 'y':
+        while True:
+            feed = input("Will you feed me hooman y/n:  ").strip() .lower()
+            if feed != 'y':
+                print("Okkk hooman.. may be later")
+                break
         
-            feed= input("You can feed me 1. Pizza🍕 2. Sushi🍣 3. Croissant🥐 and 4. Bubble Tea🧋").strip()
+            feed= input("You can feed me 1. Pizza🍕 2. Sushi🍣 3. Croissant🥐 and 4. Bubble Tea🧋  ").strip()
             if feed == '1':
                 print("Yayyyy.. You feed me pizza🍕")
                 self.food += 30
@@ -30,16 +33,20 @@ class Pet:
     
     def pet(self):
         
-            pet = input("Will you pet me hooman🥺 y/n").strip().lower()
-            if pet == 'y':
+        while True:
+            feed = input("Will you pet me hooman🥺 y/n:  ").strip() .lower()
+            if feed != 'y':
+                print("Okkk hooman.. may be later")
+                break
+            else:
                 print ("Happi❤️")
                 self.love += 10
-            else:
-                print("It's ok hooman🥺")
+          
     
     def about(self):
         print(f"Name: {self.name}")
-        print(f"Hunger level: {self.food}%")
+        print(f"Happiness: {self.happiness}%")
+        print(f"Energy: {self.food}%")
         print(f"Love: {self.love}%")
         if self.food <= 15:
             print ("I'm about to die. Feed me more🥺")
@@ -53,21 +60,39 @@ class Dog(Pet):
         print("Woof")
     
     def fetch(self):
-        # need to add more ball
-        print("fetching the ball....")
-
+        while True:
+            play = input("Will you play with me hooman y/n:  ").strip() .lower()
+            if play != 'y':
+                print("Okkk hooman.. may be later")
+                break
+            print("fetching the ball...⚽")
+            self.happiness +=10
 
 class Cat(Pet):
     def make_sound(self):
         print("Meow")
     
     def nap(self):
-        print("Purrrr....😸😴")
+        while True:
+            nap = input("Will you let me nap y/n:  ").strip() .lower()
+            if nap != 'y':
+                print("Okkk hooman.. may be later")
+                break
+            print("Purrrr....😸😴")
+            self.happiness +=10
+
+        
 
 class Penguin(Pet):
     def slide(self):
-        print("🐧Wheee! I'm sliding on the ice⛸️")
-   
+        while True:
+            slide = input("Let's slide on the ice! y/n:  ").strip() .lower()
+            if slide != 'y':
+                print("Okkk hooman.. may be later")
+                break
+            print("🐧Wheee! I'm sliding on the ice⛸️")
+            self.happiness +=10
+        
 
 print("Here's your virtual pet options. Choose 1,2 or 3.")
 pet = input("1. Penguin 2. Dog 3. Cat :  ")
@@ -77,6 +102,7 @@ if pet == '1':
     manchot.introduce()
     manchot.feed()       
     manchot.pet()
+    manchot.slide()
     manchot.about()
 
 if pet == '2':
@@ -86,6 +112,7 @@ if pet == '2':
     chien.make_sound()
     chien.feed()
     chien.pet()
+    chien.fetch()
     chien.about()
 
 if pet == '3':
@@ -95,4 +122,5 @@ if pet == '3':
     chat.make_sound()
     chat.feed()
     chat.pet()
+    chat.nap()
     chat.about()
