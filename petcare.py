@@ -9,19 +9,20 @@ class Pet:
         print(f"Hello. I am {self.name} and your virtual pet")
 
     def feed(self):
-        feed= input("You can feed me 1. Pizza🍕 2. Sushi🍣 3. Croissant🥐 and 4. Bubble Tea🧋")
-        if feed == 1:
-            print("Yayyyy.. You feed me pizza🍕")
-            self.food += 30
-        elif feed == 2:
-            print("Yayyyy.. You feed me sushi🍣")
-            self.food += 30
-        elif feed == 3:
-            print("Yayyyy.. You feed me Croissant🥐")
-            self.food += 20
-        else: 
-            print("Yayyyy.. Bubble tea is delicious🧋")
-            self.food += 15
+        for i in range(5):
+            feed= input("You can feed me 1. Pizza🍕 2. Sushi🍣 3. Croissant🥐 and 4. Bubble Tea🧋")
+            if feed == 1:
+                print("Yayyyy.. You feed me pizza🍕")
+                self.food += 30
+            elif feed == 2:
+                print("Yayyyy.. You feed me sushi🍣")
+                self.food += 30
+            elif feed == 3:
+                print("Yayyyy.. You feed me Croissant🥐")
+                self.food += 20
+            else: 
+                print("Yayyyy.. Bubble tea is delicious🧋")
+                self.food += 15
     
     def pet(self):
         for i in range (5):
@@ -36,12 +37,18 @@ class Pet:
         print(f"Name: {self.name}")
         print(f"Hunger level: {self.food}%")
         print(f"Love: {self.love}%")
-        if self.skinhealth <= 15:
-            print ("You have to learn more about skincare")
+        if self.food <= 15:
+            print ("I'm about to die. Feed me more🥺")
+        elif self.food >=20 or self.food <150:
+            print ("Half energy but still hungry")
         else:
-            print ("You are doing great")
+            print("Full energy")
 
-print("Here's your virtual pet")
-pet = input("1. Penguin 2. Dog 3. Cat")
-if pet == 1:
-    Cat()
+class Cat(Pet):
+    def make_sound(self):
+        print("Meow")
+
+print("Here's your virtual pet options. Choose 1,2 or 3.")
+pet = input("1. Penguin 2. Dog 3. Cat :  ")
+if pet == '3':
+    name = input("What would you like to name your cat")
