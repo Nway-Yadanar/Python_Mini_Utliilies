@@ -103,36 +103,63 @@ class Penguin(Pet):
             print("🐧Wheee! I'm sliding on the ice⛸️")
             self.happiness +=10
 #Game setup
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
+print("Choose your virtual pet:")
+print("1. Penguin 🐧")
+print("2. Dog 🐶")
+print("3. Cat 🐱")
+pet_choice = input("Enter your pet (1/2/3): ").strip()
+
+if pet_choice == '1':
+    name = input("Name your penguin: ")
+    pet = Penguin(name)
+elif pet_choice == '2':
+    name = input("Name your dog: ")
+    pet = Dog(name)
+elif pet_choice == '3':
+    name = input("Name your cat: ")
+    pet = Cat(name)
+else:
+    print("Invalid choice. Defaulting to Cat named Tom.")
+    pet = Cat("Tom")
 # Game loop
-Pet.introduce()
-print("Here's your virtual pet options. Choose 1,2 or 3.")
-pet = input("1. Penguin 2. Dog 3. Cat :  ")
-if pet == '1':
-    name = input("What would you like to name your penguin? ")
-    manchot = Penguin(name) 
-    manchot.introduce()
-    manchot.feed()       
-    manchot.pet()
-    manchot.slide()
-    manchot.about()
+pet.introduce()
+while True:
+    pet.decay()
+    print("\nWhat would you like to do?")
+    print("1. Feed 🍽️")
+    print("2. Pet 🥰")
+    if isinstance(pet, Dog):
+        print("3. Play Fetch ⚽")
+    elif isinstance(Pet, Cat):
+        print("3. Nap 😴")
+    elif isinstance(Pet, Penguin):
+        print("3. Slide ❄️")
+    print("4. View Current State ")
+    print("5. Exit 🚪")
 
-if pet == '2':
-    name = input("What would you like to name your dog? ")
-    chien = Dog(name) 
-    chien.introduce()
-    chien.make_sound()
-    chien.feed()
-    chien.pet()
-    chien.fetch()
-    chien.about()
+    action = input("Choose an action (1-5): ").strip()
 
-if pet == '3':
-    name = input("What would you like to name your cat? ")
-    chat = Cat(name) 
-    chat.introduce()
-    chat.make_sound()
-    chat.feed()
-    chat.pet()
-    chat.nap()
-    chat.about()
+    if action == '1':
+        pet.feed()
+    elif action == '2':
+        pet.pet()
+    elif action == '3':
+        if isinstance(pet, Dog):
+            pet.fetch()
+        elif isinstance(Pet, Cat):
+            pet.nap()
+        elif isinstance(Pet, Penguin):
+            pet.slide()
+    elif action == '4':
+        pet.about()
+    elif action == '5':
+        print(f"Goodbye! {pet.name} will miss you 💔")
+        break
+    else:
+        print("Invalid action.")
+
+    time.sleep(2)
+    clear()
