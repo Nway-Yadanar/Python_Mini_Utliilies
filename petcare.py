@@ -1,10 +1,14 @@
 #for Inheritence
+import time
+import os
+
 class Pet:
     def __init__(self,name):
         self.name = name
         self.food = 0
         self.love = 0
         self.happiness = 0 #for happiness meter
+        self.alive = True #for alive or dead
 
     def introduce(self):
         print(f"Hello. I am {self.name} and your virtual pet")
@@ -27,9 +31,11 @@ class Pet:
             elif feed == '3':
                 print("Yayyyy.. You feed me Croissant🥐")
                 self.food += 20
-            else: 
+            elif feed == '4': 
                 print("Yayyyy.. Bubble tea is delicious🧋")
                 self.food += 15
+            else:
+                print("That's not in the menu")
     
     def pet(self):
         
@@ -42,7 +48,11 @@ class Pet:
                 print ("Happi❤️")
                 self.love += 10
           
-    
+    def decay(self):
+        self.food = max(0,self.food - 5)
+        self.love = max(0,self.love - 2)
+        self.love = max(0,self.food - 1)
+
     def about(self):
         print(f"Name: {self.name}")
         print(f"Happiness: {self.happiness}%")
@@ -51,7 +61,7 @@ class Pet:
         if self.food <= 15:
             print ("I'm about to die. Feed me more🥺")
         elif self.food >=20 or self.food <150:
-            print ("Half energy but still hungry")
+            print ("I'm ok hooman but still hungry")
         else:
             print("Full energy")
 
@@ -92,8 +102,10 @@ class Penguin(Pet):
                 break
             print("🐧Wheee! I'm sliding on the ice⛸️")
             self.happiness +=10
-        
+#Game setup
 
+# Game loop
+Pet.introduce()
 print("Here's your virtual pet options. Choose 1,2 or 3.")
 pet = input("1. Penguin 2. Dog 3. Cat :  ")
 if pet == '1':
