@@ -10,6 +10,8 @@ I started this repo to:
 - To learn with real-world useful mini exercises
 - Turn tiny sparks of inspiration into code 🔥
 - Keep it real, useful, and sometimes just fun ✨
+- and to also inspire students who don't dare stepping into big projects
+  
 
 ## ⚠️ Warning
 Some of this code is just for fun and progress. Don’t expect enterprise-grade Python — this is heart-coded 💘 not hardcore.
@@ -17,3 +19,5 @@ Some of this code is just for fun and progress. Don’t expect enterprise-grade 
 ## 💡 What's Next?
 - More learning mini projects will be posted here
 - This is just a safe space for creativity and learning progress.
+  
+## ✨ Best Wishes
