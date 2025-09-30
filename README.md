@@ -6,7 +6,6 @@ Every file in here is a vibe — not a final product, just ✨progress✨.
 ## 🌟 Why This Exists
 
 I started this repo to:
-- Overcome my perfectionist fears 😵‍💫
 - Practice Python without pressure 🐍
 - To learn with real-world useful mini exercises
 - Turn tiny sparks of inspiration into code 🔥
